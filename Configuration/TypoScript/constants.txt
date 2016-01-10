@@ -1,0 +1,35 @@
+
+plugin.tx_pceventscheduler {
+	view {
+		# cat=plugin.tx_pceventscheduler/file; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:pc_event_scheduler/Resources/Private/Templates/
+		# cat=plugin.tx_pceventscheduler/file; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:pc_event_scheduler/Resources/Private/Partials/
+		# cat=plugin.tx_pceventscheduler/file; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:pc_event_scheduler/Resources/Private/Layouts/
+	}
+	persistence {
+		# cat=plugin.tx_pceventscheduler//a; type=string; label=Default storage PID
+		storagePid =
+	}
+	settings {
+		# cat=plugin.tx_pceventscheduler//a; type=string; label=Default event start time (H:M), Default: 20:00
+		eventStartTime = 20:00
+		# cat=plugin.tx_pceventscheduler//a; type=string; label=Default event end time (H:M), Default: 22:00
+		eventEndTime = 22:00
+		# cat=plugin.tx_pceventscheduler//a; type=string; label=Default event location
+		defaultLocation = Default location
+		# cat=plugin.tx_pceventscheduler//a; type=string; label=Alternative event location
+		alternateLocation =
+		# cat=plugin.tx_pceventscheduler//a; type=string; label=Weekday of the event is (Monday to Sunday), Default: Friday
+		eventWeekday = Friday
+		# cat=plugin.tx_pceventscheduler//a; type=string; label=Event is repeated after amount of weeks specified here, Default: 1 week 
+		repeatEventInterval = 1
+		# cat=plugin.tx_pceventscheduler//a; type=string; label=Group ID for the participants 
+		participantGroupId =
+		# cat=plugin.tx_pceventscheduler//a; type=string; label=Group ID for the event administration 
+		eventAdminGroupId =
+		# cat=plugin.tx_pceventscheduler//a; type=string; label=Page UID of the event planner (for the link generation in the notification scheduler task) 
+		eventPageUid = 
+	}
+}

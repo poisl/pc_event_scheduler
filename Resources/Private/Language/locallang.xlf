@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-12-22T00:28:51Z" product-name="pc_event_scheduler">
+		<header/>
+		<body>
+			<trans-unit id="tx_pceventscheduler_domain_model_event">
+				<source>Event</source>
+			</trans-unit>
+			<trans-unit id="tx_pceventscheduler_domain_model_event.start">
+				<source>Start</source>
+			</trans-unit>
+			<trans-unit id="tx_pceventscheduler_domain_model_event.end">
+				<source>End</source>
+			</trans-unit>
+			<trans-unit id="tx_pceventscheduler_domain_model_event.location">
+				<source>Location</source>
+			</trans-unit>
+			<trans-unit id="tx_pceventscheduler_domain_model_event.active">
+				<source>Active</source>
+			</trans-unit>
+			<trans-unit id="tx_pceventscheduler_domain_model_event.inactive_reason">
+				<source>Inactive Reason</source>
+			</trans-unit>
+			<trans-unit id="tx_pceventscheduler_domain_model_event.participants">
+				<source>Participants</source>
+			</trans-unit>
+			<trans-unit id="tx_pceventscheduler_domain_model_participant">
+				<source>Participant</source>
+			</trans-unit>
+			<trans-unit id="tx_pceventscheduler_domain_model_participant.accept">
+				<source>Accept</source>
+			</trans-unit>
+			<trans-unit id="tx_pceventscheduler_domain_model_participant.participant_user_id">
+				<source>Participant User Id</source>
+			</trans-unit>
+						<trans-unit id="tx_pceventscheduler_domain_model_participant.tstamp">
+				<source>Date and time</source>
+			</trans-unit>
+			<trans-unit id="tx_pceventscheduler_domain_model_holiday">
+				<source>Holiday</source>
+			</trans-unit>
+			<trans-unit id="tx_pceventscheduler_domain_model_holiday.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_pceventscheduler_domain_model_holiday.start">
+				<source>Start</source>
+			</trans-unit>
+			<trans-unit id="tx_pceventscheduler_domain_model_holiday.end">
+				<source>End</source>
+			</trans-unit>
+			<trans-unit id="dateFormat">
+				<source>d.m.Y</source>
+			</trans-unit>
+			<trans-unit id="dateTimeFormat">
+				<source>d.m.Y H:i</source>
+			</trans-unit>
+			<trans-unit id="flexform.pleaseChoose">
+				<source>Please choose...</source>
+			</trans-unit>
+			<trans-unit id="flexform.eventPlanner">
+				<source>Event Planner</source>
+			</trans-unit>
+			<trans-unit id="flexform.manageVacation">
+				<source>Manage Holidays</source>
+			</trans-unit>
+			<trans-unit id="eventPlanner.lastEvent">
+				<source>Last Event</source>
+			</trans-unit>
+			<trans-unit id="eventPlanner.currentEvent">
+				<source>Current Event</source>
+			</trans-unit>
+			<trans-unit id="eventPlanner.nextEvent">
+				<source>Next Event</source>
+			</trans-unit>
+			<trans-unit id="eventPlanner.accept">
+				<source>Accept</source>
+			</trans-unit>
+			<trans-unit id="eventPlanner.cancel">
+				<source>Cancel</source>
+			</trans-unit>
+			<trans-unit id="eventPlanner.acceptList">
+				<source>Participants accepted</source>
+			</trans-unit>
+			<trans-unit id="eventPlanner.canceledList">
+				<source>Participants canceled</source>
+			</trans-unit>
+			<trans-unit id="eventPlanner.unknownList">
+				<source>Participants unknown</source>
+			</trans-unit>
+			<trans-unit id="eventPlanner.activateEvent">
+				<source>Activate event</source>
+			</trans-unit>
+			<trans-unit id="eventPlanner.deactivateEvent">
+				<source>Deactivate event</source>
+			</trans-unit>
+			<trans-unit id="tx_pceventscheduler_domain_model_event.eventActive.0">
+				<source>Event is scheduled for</source>
+			</trans-unit>			
+			<trans-unit id="tx_pceventscheduler_domain_model_event.eventActive.1">
+				<source>at</source>
+			</trans-unit>
+			<trans-unit id="tx_pceventscheduler_domain_model_event.eventInactive.0">
+				<source>Event on</source>
+			</trans-unit>
+			<trans-unit id="tx_pceventscheduler_domain_model_event.eventInactive.1">
+				<source>is canceled because</source>
+			</trans-unit>
+			<trans-unit id="eventPlanner.noAccess">
+				<source>You have no access to the event planner.</source>
+			</trans-unit>
+			<trans-unit id="manageHolidays.noAccess">
+				<source>You have no access to manage holidays.</source>
+			</trans-unit>
+			<trans-unit id="eventPlanner.title">
+				<source>Event Planner</source>
+			</trans-unit>
+			<trans-unit id="manageHolidays.title">
+				<source>Manage holidays</source>
+			</trans-unit>
+			<trans-unit id="edit">
+				<source>Edit</source>
+			</trans-unit>
+			<trans-unit id="delete">
+				<source>Delete</source>
+			</trans-unit>
+			<trans-unit id="manageHolidays.newHoliday">
+				<source>New Holiday</source>
+			</trans-unit>
+			<trans-unit id="manageHolidays.editHoliday">
+				<source>Edit Holiday</source>
+			</trans-unit>
+			<trans-unit id="createNew">
+				<source>Create new</source>
+			</trans-unit>
+			<trans-unit id="save">
+				<source>Save</source>
+			</trans-unit>
+			<trans-unit id="required">
+				<source>required</source>
+			</trans-unit>
+			<trans-unit id="message.setLocation">
+				<source>The event location was set to</source>
+			</trans-unit>
+			<trans-unit id="message.activateEvent">
+				<source>The event was activated.</source>
+			</trans-unit>
+			<trans-unit id="message.deactivateEvent">
+				<source>The event was deactivated.</source>
+			</trans-unit>			
+			<trans-unit id="message.acceptedEvent">
+				<source>You accepted the event.</source>
+			</trans-unit>
+			<trans-unit id="message.canceledEvent">
+				<source>You canceled the event.</source>
+			</trans-unit>
+			<trans-unit id="message.holidayCreated">
+				<source>New holiday created.</source>
+			</trans-unit>
+			<trans-unit id="message.holidayEdited">
+				<source>Holiday updated.</source>
+			</trans-unit>
+			<trans-unit id="message.holidayDeleted">
+				<source>Holiday deleted.</source>
+			</trans-unit>
+			<trans-unit id="inactiveReason.adminCanceled">
+				<source>admin canceled</source>
+			</trans-unit>			
+			<trans-unit id="or">
+				<source>or</source>
+			</trans-unit>
+			<trans-unit id="notify.mailSubject">
+				<source>Erinnerung zum Volleyball am Fichte</source>
+			</trans-unit>
+			<trans-unit id="notify.mailBody">
+				<source><![CDATA[Hallo %1$s,<br><br>am %2$s findet um %3$s Uhr Volleyball am %4$s statt. Leider hast Du Dich bisher weder an- noch abgemeldet und wir würden uns sehr über Dein Kommen freuen.<br><br><a href='%5$s'>ZUSAGEN</a><br><br>oder<br><br><a href='%6$s'>ABSAGEN</a><br><br>Bis Freitag,<br>Thomas<br><br>Dies ist eine automatisch erzeugte Mail, bitte nicht darauf antworten.</body></html>]]></source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

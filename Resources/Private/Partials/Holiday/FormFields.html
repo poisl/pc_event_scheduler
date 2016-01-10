@@ -1,0 +1,29 @@
+<script type="text/javascript" src="/typo3conf/ext/pc_event_scheduler/Resources/Public/JavaScript/jquery-2.1.4.min.js"></script> 
+<script src="/typo3conf/ext/pc_event_scheduler/Resources/Public/JavaScript/polyfiller.js"></script>
+<script>
+webshims.setOptions('forms-ext', {types: 'date'});
+webshims.polyfill('forms forms-ext');
+$.webshims.formcfg = {
+en: {
+    dFormat: '.',
+    dateSigns: '.',
+    patterns: {
+        d: "dd.mm.yy"
+    }
+}
+};
+</script>
+
+<label for="description">
+	<f:translate key="tx_pceventscheduler_domain_model_holiday.description" /> <span class="required">(<f:translate key="required" />)</span>
+</label><br />
+	<f:form.textfield property="description" /><br />
+<label for="start">
+	<f:translate key="tx_pceventscheduler_domain_model_holiday.start" /> <span class="required">(<f:translate key="required" />)</span>
+</label><br />
+ 	<f:form.textfield property="start" type="date" value="{holiday.start->f:format.date(format: 'Y-m-d')}" /><br />
+<label for="end">
+	<f:translate key="tx_pceventscheduler_domain_model_holiday.end" /> <span class="required">(<f:translate key="required" />)</span>
+</label><br />
+	<f:form.textfield property="end" type="date" value="{holiday.end->f:format.date(format: 'Y-m-d')}" /><br />
+	

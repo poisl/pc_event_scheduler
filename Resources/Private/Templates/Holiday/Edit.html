@@ -1,0 +1,33 @@
+
+<f:layout name="Default" />
+
+This template displays a EDIT form for the current domain object.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        Edit.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="main">
+<f:security.ifHasRole role="{settings.eventAdminGroupId}">
+<f:then>
+<h1><f:translate key="manageHolidays.editHoliday" /></h1>
+
+<f:flashMessages />
+
+<f:render partial="FormErrors" arguments="{object:Holiday}" />
+
+<f:form action="update" name="holiday" object="{holiday}" >
+<f:render partial="Holiday/FormFields" arguments="{holiday:holiday}" />
+	<f:form.submit value="{f:translate(key: 'save')}" />
+</f:form>
+</f:then>
+<f:else>
+<f:translate key="manageHolidays.noAccess" />
+</f:else>
+</f:security.ifHasRole>
+</f:section>

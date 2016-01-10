@@ -1,0 +1,58 @@
+
+plugin.tx_pceventscheduler {
+	view {
+		templateRootPaths.0 = {$plugin.tx_pceventscheduler.view.templateRootPath}
+		partialRootPaths.0 = {$plugin.tx_pceventscheduler.view.partialRootPath}
+		layoutRootPaths.0 = {$plugin.tx_pceventscheduler.view.layoutRootPath}
+	}
+	persistence {
+		storagePid = {$plugin.tx_pceventscheduler.persistence.storagePid}
+	}
+	settings {
+		eventStartTime = {$plugin.tx_pceventscheduler.settings.eventStartTime}
+		eventEndTime = {$plugin.tx_pceventscheduler.settings.eventEndTime}
+		defaultLocation = {$plugin.tx_pceventscheduler.settings.defaultLocation}
+		alternateLocation = {$plugin.tx_pceventscheduler.settings.alternateLocation}
+		eventWeekday = {$plugin.tx_pceventscheduler.settings.eventWeekday}
+		repeatEventInterval = {$plugin.tx_pceventscheduler.settings.repeatEventInterval} 
+		participantGroupId = {$plugin.tx_pceventscheduler.settings.participantGroupId}
+		eventAdminGroupId = {$plugin.tx_pceventscheduler.settings.eventAdminGroupId}
+		eventPageUid = {$plugin.tx_pceventscheduler.settings.eventPageUid}
+	}
+}
+
+module.tx_pceventscheduler < plugin.tx_pceventscheduler
+
+plugin.tx_pceventscheduler._CSS_DEFAULT_STYLE (
+	textarea.f3-form-error {
+		background-color:#FF9F9F;
+		border: 1px #FF0000 solid;
+	}
+
+	input.f3-form-error {
+		background-color:#FF9F9F;
+		border: 1px #FF0000 solid;
+	}
+
+	.tx-pc-event-scheduler table {
+		border-collapse:separate;
+		border-spacing:10px;
+	}
+
+	.tx-pc-event-scheduler table th {
+		font-weight:bold;
+	}
+
+	.tx-pc-event-scheduler table td {
+		vertical-align:top;
+	}
+
+	.typo3-messages .message-error {
+		color:red;
+	}
+
+	.typo3-messages .message-ok {
+		color:green;
+	}
+
+)

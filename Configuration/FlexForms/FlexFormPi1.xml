@@ -1,0 +1,42 @@
+<T3DataStructure>
+	<meta>
+		<langDisable>1</langDisable>
+	</meta>
+	<sheets>
+		<main>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:pc_event_scheduler/Resources/Private/Language/locallang.xlf:flexform.main.title</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<switchableControllerActions>
+						<TCEforms>
+							<label>LLL:EXT:pc_event_scheduler/Resources/Private/Language/locallang.xlf:flexform.main.view</label>
+							<onChange>reload</onChange>
+							<config>
+								<type>select</type>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0">LLL:EXT:pc_event_scheduler/Resources/Private/Language/locallang.xlf:flexform.pleaseChoose</numIndex>
+										<numIndex index="1"></numIndex>
+									</numIndex>
+									<numIndex index="1" type="array">
+										<numIndex index="0">LLL:EXT:pc_event_scheduler/Resources/Private/Language/locallang.xlf:flexform.eventPlanner</numIndex>
+										<numIndex index="1">Event->list;Event->next;Event->last;Event->accept;Event->cancel;Event->activate;Event->deactivate;Event->location;</numIndex>
+									</numIndex>
+									<numIndex index="2" type="array">
+										<numIndex index="0">LLL:EXT:pc_event_scheduler/Resources/Private/Language/locallang.xlf:flexform.manageVacation</numIndex>
+										<numIndex index="1">Holiday->list;Holiday->new;Holiday->create;Holiday->edit;Holiday->update;Holiday->delete;</numIndex>
+									</numIndex>
+								</items>
+								<maxitems>1</maxitems>
+								<size>1</size>
+							</config>
+						</TCEforms>
+					</switchableControllerActions>
+				</el>
+			</ROOT>
+		</main>
+	</sheets>
+</T3DataStructure>

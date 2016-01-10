@@ -1,0 +1,106 @@
+<f:layout name="Default" />
+
+This Template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="main">
+<f:security.ifHasRole role="{settings.participantGroupId}">
+<f:then>
+<h1><f:translate key="eventPlanner.title" /></h1>
+
+<f:flashMessages />
+
+<f:for each="{events}" as="event">
+	<f:if condition="{event.active}">
+		<f:then>
+			<h4 style="color: green">
+				<f:translate key="tx_pceventscheduler_domain_model_event.eventActive.0" /> {event.start -> f:format.date(format: '{f:translate(key: \'dateFormat\' )}')} - {settings.eventStartTime}
+				<f:translate key="tx_pceventscheduler_domain_model_event.eventActive.1" /> {event.location}.
+			</h4>
+			<table  class="tx_pceventscheduler">
+				<tr>
+					<td><f:link.action action="accept" arguments="{offset : offset}"><f:translate key="eventPlanner.accept" /></f:link.action></td>
+					<td><f:translate key="or" /></td>
+					<td><f:link.action action="cancel" arguments="{offset : offset}"><f:translate key="eventPlanner.cancel" /></f:link.action></td>
+				</tr>
+			</table>
+		</f:then>
+		<f:else>
+			<h4 style="color: red">
+				<f:translate key="tx_pceventscheduler_domain_model_event.eventInactive.0" /> {event.start -> f:format.date(format: '{f:translate(key: \'dateFormat\' )}')}
+				<f:translate key="tx_pceventscheduler_domain_model_event.eventInactive.1" /> {event.inactiveReason}.
+			</h4>
+		</f:else>
+	</f:if>
+</f:for>
+
+<table  class="tx_pceventscheduler" width=40%>
+	<tr>
+		<td><f:link.action action="last" arguments="{offset : offset}"><< <f:translate key="eventPlanner.lastEvent" /></f:link.action></td>
+		<td><f:link.action action="list" arguments="{offset : '0'}"><f:translate key="eventPlanner.currentEvent" /></f:link.action></td>
+		<td><f:link.action action="next" arguments="{offset : offset}"><f:translate key="eventPlanner.nextEvent" /> >></f:link.action></td>
+	</tr>
+</table>
+
+<f:security.ifHasRole role="{settings.eventAdminGroupId}">
+<table  class="tx_pceventscheduler">
+	<tr>
+		<td><f:link.action action="activate" arguments="{offset : offset}"><f:translate key="eventPlanner.activateEvent" /></f:link.action></td>
+		<td><f:link.action action="deactivate" arguments="{offset : offset}"><f:translate key="eventPlanner.deactivateEvent" /></f:link.action></td>
+	<f:if condition="{settings.alternateLocation}">
+		<td><f:link.action action="location" arguments="{offset : offset, location : settings.defaultLocation}"><f:translate key="tx_pceventscheduler_domain_model_event.location" />: {settings.defaultLocation}</f:link.action></td>
+		<td><f:link.action action="location" arguments="{offset : offset, location : settings.alternateLocation}"><f:translate key="tx_pceventscheduler_domain_model_event.location" />: {settings.alternateLocation}</f:link.action></td>
+	</f:if>
+	</tr>
+</table>
+</f:security.ifHasRole>
+
+<f:if condition="{participantsAccepted -> f:count()} > 0">
+<h4 style="color: green"><f:count>{participantsAccepted}</f:count> <f:translate key="eventPlanner.acceptList" />:</h4>
+<table class="tx_pceventscheduler" >
+	<f:for each="{participantsAccepted}" as="participant">
+		<tr>
+			<td style="color: green">{participant.participantUserId.name}</td>
+			<td>(<f:format.date format='{f:translate(key: \'dateTimeFormat\' )}'>{participant.tstamp}</f:format.date>)</td>
+		</tr>
+	</f:for>
+</table>
+</f:if>
+
+<f:if condition="{participantsCanceled -> f:count()} > 0">
+<h4 style="color: red"><f:count>{participantsCanceled}</f:count> <f:translate key="eventPlanner.canceledList" />:</h4>
+<table class="tx_pceventscheduler" >
+	<f:for each="{participantsCanceled}" as="participant">
+		<tr>
+			<td style="color: red">{participant.participantUserId.name}</td>
+			<td>(<f:format.date format='{f:translate(key: \'dateTimeFormat\' )}'>{participant.tstamp}</f:format.date>)</td>
+		</tr>
+	</f:for>
+</table>
+</f:if>
+
+<f:if condition="{participantsUnknown -> f:count()} > 0">
+<h4><f:count>{participantsUnknown}</f:count> <f:translate key="eventPlanner.unknownList" />:</h4>
+<table class="tx_pceventscheduler" >
+	<f:for each="{participantsUnknown}" as="participant">
+		<tr>
+			<td>{participant.name}</td>
+		</tr>
+	</f:for>
+</table>
+</f:if>
+
+</f:then>
+<f:else>
+<f:translate key="eventPlanner.noAccess" />
+</f:else>
+</f:security.ifHasRole>
+</f:section>
