@@ -18,6 +18,7 @@ plugin.tx_pceventscheduler {
 		participantGroupId = {$plugin.tx_pceventscheduler.settings.participantGroupId}
 		eventAdminGroupId = {$plugin.tx_pceventscheduler.settings.eventAdminGroupId}
 		eventPageUid = {$plugin.tx_pceventscheduler.settings.eventPageUid}
+		notifyMailSubject = {$plugin.tx_pceventscheduler.settings.notifyMailSubject}
 	}
 }
 

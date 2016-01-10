@@ -39,6 +39,8 @@ Plugin TS setup in root template
               eventAdminGroupId = 123
               # Id of the page where the event planner is included
               eventPageUid = 123
+              # Email subject for the email notification; Default value, if not set "Event notification"
+              notifyMailSubject = Event notification
     }
     # DO NOT REMOVE: This line is required, that the email notify task has access to the plugin settings
     module.tx_pceventscheduler < plugin.tx_pceventscheduler
