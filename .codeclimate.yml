@@ -1,3 +1,0 @@
-## Exclude external code from testing
-exclude_paths:
-- Resources/Public/**/*
