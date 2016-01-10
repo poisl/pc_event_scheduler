@@ -1,6 +1,8 @@
 EXT:pc\_event\_scheduler
 ========================
 
+|Code Climate|
+
 Installation
 ------------
 
@@ -49,3 +51,6 @@ Notify Participants by mail
 -  Add a new "Extbase-CommandController-Task" and select CommandController Command "PcEventScheduler Notify: notify".
 -  Setup the start and repeat time as you wish, everytime this task runs it will notify all participants about the next event, that did not yet accept or cancel it.
 -  The email will not only contain details about the next event but also links to accept or cancel the participation.
+
+.. |Code Climate| image:: https://codeclimate.com/github/poisl/pc_event_scheduler/badges/gpa.svg
+:target: https://codeclimate.com/github/poisl/pc_event_scheduler
