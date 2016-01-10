@@ -244,9 +244,9 @@
             "disableVersioning": false,
             "skipGenerateDocumentationTemplate": false,
             "sourceLanguage": "en",
-            "state": "alpha",
+            "state": "beta",
             "targetVersion": "7.6.0-7.6.99",
-            "version": "1.0.0"
+            "version": "1.0.1"
         },
         "extensionKey": "pc_event_scheduler",
         "name": "Event Scheduler",
