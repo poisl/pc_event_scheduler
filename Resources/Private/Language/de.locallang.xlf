@@ -168,12 +168,6 @@
 			<trans-unit id="or">
 				<target>oder</target>
 			</trans-unit>
-			<trans-unit id="notify.mailSubject">
-				<target>Erinnerung zum Volleyball am Fichte</target>
-			</trans-unit>
-			<trans-unit id="notify.mailBody">
-				<target><![CDATA[Hallo %1$s,<br><br>am %2$s findet um %3$s Uhr Volleyball am %4$s statt. Leider hast Du Dich bisher weder an- noch abgemeldet und wir würden uns sehr über Dein Kommen freuen.<br><br><a href='%5$s'>ZUSAGEN</a><br><br>oder<br><br><a href='%6$s'>ABSAGEN</a><br><br>Bis Freitag,<br>Thomas<br><br>Dies ist eine automatisch erzeugte Mail, bitte nicht darauf antworten.</body></html>]]></target>
-			</trans-unit>
 		</body>
 	</file>
 </xliff>
