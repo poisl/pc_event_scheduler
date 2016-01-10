@@ -41,6 +41,8 @@ Plugin TS setup in root template
               eventPageUid = 123
               # Email subject for the email notification; Default value, if not set "Event notification"
               notifyMailSubject = Event notification
+              # Email body for the email notification in html style; Default value is set
+              notifyMailBody = Hello ###name###,<br><br>on ###eventdate### at ###eventtime### o'clock there is an event in ###eventlocation###. You have neither accepted or canceled this event yet, please do so.<br><br><a href='###acceptlink###'>ACCEPT</a><br><br>or<br><br><a href='###cancellink###'>CANCEL</a><br><br>Best regards<br><br>This is an automated message, please don't reply to it.
     }
     # DO NOT REMOVE: This line is required, that the email notify task has access to the plugin settings
     module.tx_pceventscheduler < plugin.tx_pceventscheduler

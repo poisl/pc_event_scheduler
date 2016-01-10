@@ -120,8 +120,12 @@ class NotifyCommandController extends \TYPO3\CMS\Extbase\Mvc\Controller\CommandC
 					$mail->setFrom($from);
 					$mail->setSubject($this->settings['notifyMailSubject']);
 					$mail->setTo($receiverEmail);
-					$mail->setBody(LocalizationUtility::translate('notify.mailBody', 'PcEventScheduler', array($receiverName, $events->getFirst()->getStart()->format("d.m.Y"), $eventStartTime, $events->getFirst()->getLocation(), $acceptUrl, $cancelUrl)),
-						'text/html' );
+					$mail->setBody(
+						str_replace(
+							array('###name###', '###eventdate###', '###eventtime###', '###eventlocation###', '###acceptlink###', '###cancellink###'), 
+							array($receiverName, $events->getFirst()->getStart()->format("d.m.Y"), $eventStartTime, $events->getFirst()->getLocation(), $acceptUrl, $cancelUrl),
+							$this->settings['notifyMailBody']
+						), 'text/html' );
 					$mail->send();
 				}
 			}

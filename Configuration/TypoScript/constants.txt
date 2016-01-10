@@ -33,5 +33,7 @@ plugin.tx_pceventscheduler {
 		eventPageUid = 
 		# cat=plugin.tx_pceventscheduler//a; type=string; label=Email subject for the email notification, Default: Event notification
 		notifyMailSubject = Event notification
+		# cat=plugin.tx_pceventscheduler//a; type=string; label=Email body for the email notification
+		notifyMailBody = Hello ###name###,<br><br>on ###eventdate### at ###eventtime### o'clock there is an event in ###eventlocation###. You have neither accepted or canceled this event yet, please do so.<br><br><a href='###acceptlink###'>ACCEPT</a><br><br>or<br><br><a href='###cancellink###'>CANCEL</a><br><br>Best regards<br><br>This is an automated message, please don't reply to it.
 	}
 }
