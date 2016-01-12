@@ -26,15 +26,13 @@ Otherwise your changes will be overwritten the next time you save the extension 
 				<f:translate key="tx_pceventscheduler_domain_model_event.eventActive.1" /> {event.location}.
 			</h4>
 			<f:if condition="{offset}>=0">
-				<f:then>
-					<table  class="tx_pceventscheduler">
-						<tr>
-							<td><f:link.action action="accept" arguments="{offset : offset}"><f:translate key="eventPlanner.accept" /></f:link.action></td>
-							<td><f:translate key="or" /></td>
-							<td><f:link.action action="cancel" arguments="{offset : offset}"><f:translate key="eventPlanner.cancel" /></f:link.action></td>
-						</tr>
-					</table>
-				</f:then>
+				<table  class="tx_pceventscheduler">
+					<tr>
+						<td><f:link.action action="accept" arguments="{offset : offset}"><f:translate key="eventPlanner.accept" /></f:link.action></td>
+						<td><f:translate key="or" /></td>
+						<td><f:link.action action="cancel" arguments="{offset : offset}"><f:translate key="eventPlanner.cancel" /></f:link.action></td>
+					</tr>
+				</table>
 			</f:if>
 		</f:then>
 		<f:else>
@@ -55,28 +53,30 @@ Otherwise your changes will be overwritten the next time you save the extension 
 </table>
 
 <f:security.ifHasRole role="{settings.eventAdminGroupId}">
-<table  class="tx_pceventscheduler">
-	<tr>
-		<td><f:link.action action="activate" arguments="{offset : offset}"><f:translate key="eventPlanner.activateEvent" /></f:link.action></td>
-		<td><f:link.action action="deactivate" arguments="{offset : offset}"><f:translate key="eventPlanner.deactivateEvent" /></f:link.action></td>
-	<f:if condition="{settings.alternateLocation}">
-		<td><f:link.action action="location" arguments="{offset : offset, location : settings.defaultLocation}"><f:translate key="tx_pceventscheduler_domain_model_event.location" />: {settings.defaultLocation}</f:link.action></td>
-		<td><f:link.action action="location" arguments="{offset : offset, location : settings.alternateLocation}"><f:translate key="tx_pceventscheduler_domain_model_event.location" />: {settings.alternateLocation}</f:link.action></td>
+	<f:if condition="{offset}>=0">
+		<table  class="tx_pceventscheduler">
+			<tr>
+				<td><f:link.action action="activate" arguments="{offset : offset}"><f:translate key="eventPlanner.activateEvent" /></f:link.action></td>
+				<td><f:link.action action="deactivate" arguments="{offset : offset}"><f:translate key="eventPlanner.deactivateEvent" /></f:link.action></td>
+				<f:if condition="{settings.alternateLocation}">
+					<td><f:link.action action="location" arguments="{offset : offset, location : settings.defaultLocation}"><f:translate key="tx_pceventscheduler_domain_model_event.location" />: {settings.defaultLocation}</f:link.action></td>
+					<td><f:link.action action="location" arguments="{offset : offset, location : settings.alternateLocation}"><f:translate key="tx_pceventscheduler_domain_model_event.location" />: {settings.alternateLocation}</f:link.action></td>
+				</f:if>
+			</tr>
+		</table>
 	</f:if>
-	</tr>
-</table>
 </f:security.ifHasRole>
 
 <f:if condition="{participantsAccepted -> f:count()} > 0">
-<h4 style="color: green"><f:count>{participantsAccepted}</f:count> <f:translate key="eventPlanner.acceptList" />:</h4>
-<table class="tx_pceventscheduler" >
-	<f:for each="{participantsAccepted}" as="participant">
-		<tr>
-			<td style="color: green">{participant.participantUserId.name}</td>
-			<td>(<f:format.date format='{f:translate(key: \'dateTimeFormat\' )}'>{participant.tstamp}</f:format.date>)</td>
-		</tr>
-	</f:for>
-</table>
+	<h4 style="color: green"><f:count>{participantsAccepted}</f:count> <f:translate key="eventPlanner.acceptList" />:</h4>
+	<table class="tx_pceventscheduler" >
+		<f:for each="{participantsAccepted}" as="participant">
+			<tr>
+				<td style="color: green">{participant.participantUserId.name}, <f:link.email email="{participant.participantUserId.email}" /></td>
+				<td>(<f:format.date format='{f:translate(key: \'dateTimeFormat\' )}'>{participant.tstamp}</f:format.date>)</td>
+			</tr>
+		</f:for>
+	</table>
 </f:if>
 
 <f:if condition="{participantsCanceled -> f:count()} > 0">
@@ -84,22 +84,24 @@ Otherwise your changes will be overwritten the next time you save the extension 
 <table class="tx_pceventscheduler" >
 	<f:for each="{participantsCanceled}" as="participant">
 		<tr>
-			<td style="color: red">{participant.participantUserId.name}</td>
+			<td style="color: red">{participant.participantUserId.name}, <f:link.email email="{participant.participantUserId.email}" /></td>
 			<td>(<f:format.date format='{f:translate(key: \'dateTimeFormat\' )}'>{participant.tstamp}</f:format.date>)</td>
 		</tr>
 	</f:for>
 </table>
 </f:if>
 
-<f:if condition="{participantsUnknown -> f:count()} > 0">
-<h4><f:count>{participantsUnknown}</f:count> <f:translate key="eventPlanner.unknownList" />:</h4>
-<table class="tx_pceventscheduler" >
-	<f:for each="{participantsUnknown}" as="participant">
-		<tr>
-			<td>{participant.name}</td>
-		</tr>
-	</f:for>
-</table>
+<f:if condition="{offset}>=0">
+	<f:if condition="{participantsUnknown -> f:count()} > 0">
+		<h4><f:count>{participantsUnknown}</f:count> <f:translate key="eventPlanner.unknownList" />:</h4>
+		<table class="tx_pceventscheduler" >
+			<f:for each="{participantsUnknown}" as="participant">
+			<tr>
+				<td>{participant.name}, <f:link.email email="{participant.email}" /></td>
+			</tr>
+			</f:for>
+		</table>
+	</f:if>
 </f:if>
 
 </f:then>

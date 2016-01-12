@@ -3,6 +3,15 @@ EXT:pc\_event\_scheduler
 
 |Code Climate|
 
+Description
+-----------
+
+The event scheduler can be used for planning of recurring events.
+Example: If you are in a small sports club, you could plan weekly games.
+Members will be able to join or cancel, so other members can see who participates in the game.
+You can plan vacation schedules, where no events will be scheduled.
+Last but not least you can notify users that have not accepted or canceled the event yet by email.
+
 Installation
 ------------
 

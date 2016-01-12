@@ -33,7 +33,7 @@
 			<trans-unit id="tx_pceventscheduler_domain_model_participant.participant_user_id">
 				<source>Participant User Id</source>
 			</trans-unit>
-						<trans-unit id="tx_pceventscheduler_domain_model_participant.tstamp">
+			<trans-unit id="tx_pceventscheduler_domain_model_participant.tstamp">
 				<source>Date and time</source>
 			</trans-unit>
 			<trans-unit id="tx_pceventscheduler_domain_model_holiday">
@@ -163,7 +163,13 @@
 				<source>Holiday deleted.</source>
 			</trans-unit>
 			<trans-unit id="message.pastEventError">
-				<source>You can't accept or cancel events that took place in the past.</source>
+				<source>You can't modify events that took place in the past.</source>
+			</trans-unit>
+			<trans-unit id="message.noParticipant">
+				<source>Only users of the configured participant group can access this operation.</source>
+			</trans-unit>
+			<trans-unit id="message.noAdmin">
+				<source>Only users of the configured admin group can access this operation.</source>
 			</trans-unit>
 			<trans-unit id="inactiveReason.adminCanceled">
 				<source>admin canceled</source>

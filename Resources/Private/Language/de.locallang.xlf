@@ -163,7 +163,13 @@
 				<target>Ferien gelöscht.</target>
 			</trans-unit>
 			<trans-unit id="message.pastEventError">
-				<target>Events in der Vergangenheit können weder zu- noch abgesagt werden.</target>
+				<target>Events in der Vergangenheit können nicht verändert werden.</target>
+			</trans-unit>
+			<trans-unit id="message.noParticipant">
+				<target>Nur Benutzer der konfigurierten Mitgliedergruppe haben auf diese Operation Zugriff.</target>
+			</trans-unit>
+			<trans-unit id="message.noAdmin">
+				<target>Nur Benutzer der konfigurierten Administratorengruppe haben auf diese Operation Zugriff.</target>
 			</trans-unit>
 			<trans-unit id="inactiveReason.adminCanceled">
 				<target>Vom Administrator abgesagt</target>

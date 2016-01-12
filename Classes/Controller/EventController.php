@@ -75,9 +75,11 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     {
     	if ($this->request->hasArgument('offset')) {
     		$offset = $this->request->getArgument('offset');
-    	} else {
+    	}
+        if (!$this->request->hasArgument('offset')) {
     		$offset = 0;
     	}
+    	
     	$this->view->assign('offset', $offset);
 
     	$eventStartDate = $this->div->nextEventDate($offset);
@@ -106,13 +108,18 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      */
     public function acceptAction()
     {
+    	if (!$this->div->isLoggedUserInGroup($this->settings['participantGroupId'])) {
+    		$this->addFlashMessage(LocalizationUtility::translate('message.noParticipant', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
+    		$this->redirect('list');
+    	}
     	if ($this->request->hasArgument('offset')) {
     		$offset = $this->request->getArgument('offset');
     		if ($offset < 0) {
     			$this->addFlashMessage(LocalizationUtility::translate('message.pastEventError', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
     			$this->redirect('list', Null, Null, array('offset'=>$offset));
     		}    		
-    	} else {
+    	}
+    	if (!$this->request->hasArgument('offset')) {
     		$offset = 0;
     	}
     	
@@ -136,7 +143,8 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     		$events->getFirst()->addParticipant($participant);
     		
     		$this->eventRepository->update($events->getFirst());
-    	} else {
+    	}
+    	if ($eventParticipant->count() > 0) {   
     		if (!$eventParticipant->getFirst()->getAccept()) {
     			$eventParticipant->getFirst()->setAccept(TRUE);
     			$this->eventRepository->update($events->getFirst());
@@ -153,13 +161,18 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      */
     public function cancelAction()
     {
+    	if (!$this->div->isLoggedUserInGroup($this->settings['participantGroupId'])) {
+    		$this->addFlashMessage(LocalizationUtility::translate('message.noParticipant', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
+    		$this->redirect('list');
+    	}
     	if ($this->request->hasArgument('offset')) {
     		$offset = $this->request->getArgument('offset');
     		if ($offset < 0) {
     			$this->addFlashMessage(LocalizationUtility::translate('message.pastEventError', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
     			$this->redirect('list', Null, Null, array('offset'=>$offset));
-    		}    		
-    	} else {
+    		}
+    	}
+    	if (!$this->request->hasArgument('offset')) {
     		$offset = 0;
     	}
     	 
@@ -182,7 +195,8 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     		 
     		$events->getFirst()->addParticipant($participant);
     		$this->eventRepository->update($events->getFirst());
-    	} else {
+    	}
+    	if ($eventParticipant->count() > 0) {
     		if ($eventParticipant->getFirst()->getAccept()) {
     			$eventParticipant->getFirst()->setAccept(FALSE);
     			$this->eventRepository->update($events->getFirst());
@@ -202,7 +216,8 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     	if ($this->request->hasArgument('offset')) {
     		$offset = $this->request->getArgument('offset');
     		$offset++;
-    	} else {
+    	}
+        if (!$this->request->hasArgument('offset')) {
     		$offset = 1;
     	}
     	$this->redirect('list', Null, Null, array('offset'=>$offset));
@@ -218,9 +233,10 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         if ($this->request->hasArgument('offset')) {
     		$offset = $this->request->getArgument('offset');
     		$offset--;
-    	} else {
-    		$offset = -1;
-    	}
+        }
+        if (!$this->request->hasArgument('offset')) {
+        	$offset = -1;
+        }
     	$this->redirect('list', Null, Null, array('offset'=>$offset));
     }
     
@@ -231,9 +247,18 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      */
     public function activateAction()
     {
+    	if (!$this->div->isLoggedUserInGroup($this->settings['eventAdminGroupId'])) {
+    		$this->addFlashMessage(LocalizationUtility::translate('message.noAdmin', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
+    		$this->redirect('list');
+    	}
     	if ($this->request->hasArgument('offset')) {
     		$offset = $this->request->getArgument('offset');
-    	} else {
+    		if ($offset < 0) {
+    			$this->addFlashMessage(LocalizationUtility::translate('message.pastEventError', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
+    			$this->redirect('list', Null, Null, array('offset'=>$offset));
+    		}    		
+    	}
+    	if (!$this->request->hasArgument('offset')) {
     		$offset = 0;
     	}
 
@@ -254,9 +279,18 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      */
     public function deactivateAction()
     {
+    	if (!$this->div->isLoggedUserInGroup($this->settings['eventAdminGroupId'])) {
+    		$this->addFlashMessage(LocalizationUtility::translate('message.noAdmin', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
+    		$this->redirect('list');
+    	}
     	if ($this->request->hasArgument('offset')) {
     		$offset = $this->request->getArgument('offset');
-    	} else {
+    		if ($offset < 0) {
+    			$this->addFlashMessage(LocalizationUtility::translate('message.pastEventError', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
+    			$this->redirect('list', Null, Null, array('offset'=>$offset));
+    		}    		
+    	}
+    	if (!$this->request->hasArgument('offset')) {
     		$offset = 0;
     	}
     
@@ -277,10 +311,19 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      */
     public function locationAction()
     {
+    	if (!$this->div->isLoggedUserInGroup($this->settings['eventAdminGroupId'])) {
+    		$this->addFlashMessage(LocalizationUtility::translate('message.noAdmin', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
+    		$this->redirect('list');
+    	}
     	$location = $this->request->getArgument('location');
     	if ($this->request->hasArgument('offset')) {
     		$offset = $this->request->getArgument('offset');
-    	} else {
+    		if ($offset < 0) {
+    			$this->addFlashMessage(LocalizationUtility::translate('message.pastEventError', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
+    			$this->redirect('list', Null, Null, array('offset'=>$offset));
+    		}    		
+    	}
+    	if (!$this->request->hasArgument('offset')) {
     		$offset = 0;
     	}
     

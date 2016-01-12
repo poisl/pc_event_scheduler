@@ -63,6 +63,25 @@ class Div extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 	protected $persistenceManager;
 
 	/**
+	 * Check if logged fe_user is in given usergroup
+	 *
+	 * @param int $groupId
+	 * @return bool $userInsideGroup
+	 */
+	public function isLoggedUserInGroup($groupId)
+	{
+		$userInsideGroup = FALSE;
+		$usergroup = $GLOBALS['TSFE']->fe_user->user['usergroup'];
+		
+		if (in_array($groupId,  explode(',', $usergroup))) {
+			$userInsideGroup = TRUE;
+		}
+		
+		return $userInsideGroup;
+			
+	}
+	
+	/**
 	 * Return Uid of logged user
 	 *
 	 * @return FrontendUserId
@@ -94,9 +113,11 @@ class Div extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 	public function getUserByUid($uid)
 	{
 		$feUserRepository = $this->objectManager->get("TYPO3\CMS\Extbase\Domain\Repository\FrontendUserRepository");
+		
 		$query = $feUserRepository->createQuery();
 		$query->getQuerySettings()->setRespectStoragePage(false);
 		$query->matching($query->equals('uid', $uid));
+		
 		return $query->execute();
 	}
 	
@@ -107,12 +128,14 @@ class Div extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 	 * @return bool $dateInsideHoliday
 	 */
 	public function dateInsideHoliday($eventDate) {
+		$dateInsideHoliday = FALSE;
 		$holidays = $this->holidayRepository->findByDate($eventDate);
+		
 		if($holidays->count() > 0) {
-			return TRUE;
-		} else {
-			return FALSE;
+			$dateInsideHoliday = TRUE;
 		}
+		
+		return $dateInsideHoliday;
 	}
 
 	/**
@@ -140,11 +163,9 @@ class Div extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 		$eventStartTime = $this->settings['eventStartTime'];
 	 	$repeatEventInterval = $this->settings['repeatEventInterval'];
 	 	$daysUntilNextEvent = $this->daysUntilNextEvent();
-	 	if ($offset == 0) {
-			$nextEventDate = new \DateTime(date("Y-m-d H:i:s",mktime(substr($eventStartTime,0,2), substr($eventStartTime,3,2), '00', date("m")  , date("d")+$daysUntilNextEvent, date("Y"))));
-		} else {
-			$nextEventDate= new \DateTime(date("Y-m-d H:i:s",mktime(substr($eventStartTime,0,2), substr($eventStartTime,3,2), '00', date("m"), date("d")+$daysUntilNextEvent+$offset*$repeatEventInterval*7, date("Y"))));
-		}
+	 	
+		$nextEventDate= new \DateTime(date("Y-m-d H:i:s",mktime(substr($eventStartTime,0,2), substr($eventStartTime,3,2), '00', date("m"), date("d")+$daysUntilNextEvent+$offset*$repeatEventInterval*7, date("Y"))));
+		
 		return $nextEventDate;
 	 }
 	 
@@ -165,7 +186,8 @@ class Div extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 	 	if ($this->dateInsideHoliday($eventStartDate)) {
 	 		$event->setActive(FALSE);
 	 		$event->setInactiveReason($this->holidayRepository->findByDate($eventStartDate)->getFirst()->getDescription());
-	 	} else {
+	 	}
+	 	if (!$this->dateInsideHoliday($eventStartDate)) {
 	 		$event->setActive(TRUE);
 	 	}
 	 	
