@@ -162,6 +162,9 @@
 			<trans-unit id="message.holidayDeleted">
 				<target>Ferien gelöscht.</target>
 			</trans-unit>
+			<trans-unit id="message.pastEventError">
+				<target>Events in der Vergangenheit können weder zu- noch abgesagt werden.</target>
+			</trans-unit>
 			<trans-unit id="inactiveReason.adminCanceled">
 				<target>Vom Administrator abgesagt</target>
 			</trans-unit>
