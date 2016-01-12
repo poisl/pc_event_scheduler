@@ -25,13 +25,17 @@ Otherwise your changes will be overwritten the next time you save the extension 
 				<f:translate key="tx_pceventscheduler_domain_model_event.eventActive.0" /> {event.start -> f:format.date(format: '{f:translate(key: \'dateFormat\' )}')} - {settings.eventStartTime}
 				<f:translate key="tx_pceventscheduler_domain_model_event.eventActive.1" /> {event.location}.
 			</h4>
-			<table  class="tx_pceventscheduler">
-				<tr>
-					<td><f:link.action action="accept" arguments="{offset : offset}"><f:translate key="eventPlanner.accept" /></f:link.action></td>
-					<td><f:translate key="or" /></td>
-					<td><f:link.action action="cancel" arguments="{offset : offset}"><f:translate key="eventPlanner.cancel" /></f:link.action></td>
-				</tr>
-			</table>
+			<f:if condition="{offset}>=0">
+				<f:then>
+					<table  class="tx_pceventscheduler">
+						<tr>
+							<td><f:link.action action="accept" arguments="{offset : offset}"><f:translate key="eventPlanner.accept" /></f:link.action></td>
+							<td><f:translate key="or" /></td>
+							<td><f:link.action action="cancel" arguments="{offset : offset}"><f:translate key="eventPlanner.cancel" /></f:link.action></td>
+						</tr>
+					</table>
+				</f:then>
+			</f:if>
 		</f:then>
 		<f:else>
 			<h4 style="color: red">

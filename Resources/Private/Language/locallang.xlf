@@ -162,6 +162,9 @@
 			<trans-unit id="message.holidayDeleted">
 				<source>Holiday deleted.</source>
 			</trans-unit>
+			<trans-unit id="message.pastEventError">
+				<source>You can't accept or cancel events that took place in the past.</source>
+			</trans-unit>
 			<trans-unit id="inactiveReason.adminCanceled">
 				<source>admin canceled</source>
 			</trans-unit>			

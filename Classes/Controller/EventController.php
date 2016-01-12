@@ -108,6 +108,10 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     {
     	if ($this->request->hasArgument('offset')) {
     		$offset = $this->request->getArgument('offset');
+    		if ($offset < 0) {
+    			$this->addFlashMessage(LocalizationUtility::translate('message.pastEventError', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
+    			$this->redirect('list', Null, Null, array('offset'=>$offset));
+    		}    		
     	} else {
     		$offset = 0;
     	}
@@ -151,6 +155,10 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     {
     	if ($this->request->hasArgument('offset')) {
     		$offset = $this->request->getArgument('offset');
+    		if ($offset < 0) {
+    			$this->addFlashMessage(LocalizationUtility::translate('message.pastEventError', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
+    			$this->redirect('list', Null, Null, array('offset'=>$offset));
+    		}    		
     	} else {
     		$offset = 0;
     	}
