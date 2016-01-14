@@ -38,4 +38,15 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
     protected $defaultOrderings = array(
         'sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING
     );
+    
+    /**
+     * Find oldest Event
+     *
+     * @return \TYPO3\FLOW3\Persistence\QueryResultInterface
+     */
+    public function findOldestEvent(){
+    	$query = $this->createQuery();
+    	$result = $query->setOrderings(array('start' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING))->execute();
+    	return $result;
+    }
 }

@@ -34,6 +34,14 @@ use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
 
+	/**
+	 * localizationUtility
+	 *
+	 * @var TYPO3\CMS\Extbase\Utility\LocalizationUtility
+	 * @inject
+	 */
+	protected $localizationUtility;
+	
     /**
      * eventRepository
      *
@@ -202,7 +210,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     			$this->eventRepository->update($events->getFirst());
     		}
     	}
-    	$this->addFlashMessage(LocalizationUtility::translate('message.canceledEvent', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::OK);
+    	$this->addFlashMessage($this->div->translate('message.canceledEvent', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::OK);
     	$this->redirect('list', Null, Null, array('offset'=>$offset));
     }
     
