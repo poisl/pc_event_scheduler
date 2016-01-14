@@ -1,0 +1,60 @@
+<f:layout name="Default" />
+
+This Template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="main">
+<f:security.ifHasRole role="{settings.participantGroupId}">
+<f:then>
+<h1><f:translate key="eventStatistics.title" /></h1>
+
+<f:flashMessages />
+
+<table class="table2">
+	<tr>
+		<th><f:translate key="eventStatistics.year" /></th>
+		<th><f:translate key="eventStatistics.activeEvents" /></th>
+		<th><f:translate key="eventStatistics.inactiveEvents" /></th>
+		<th><f:translate key="eventStatistics.averageAccepts" /></th>
+		<th><f:translate key="eventStatistics.minimumAccepts" /></th>
+		<th><f:translate key="eventStatistics.maximumAccepts" /></th>
+		<th><f:translate key="eventStatistics.averageCancels" /></th>
+		<th><f:translate key="eventStatistics.minimumCancels" /></th>
+		<th><f:translate key="eventStatistics.maximumCancels" /></th>
+		<th><f:translate key="eventStatistics.topParticipants" /></th>
+	</tr>
+	
+	<f:for each="{statistics}" as="statistic">
+		<tr>
+			<td>{statistic.year}</td>
+			<td style="color: green">{statistic.activeEvents}</td>
+			<td style="color: red">{statistic.inactiveEvents}</td>
+			<td style="color: green">{statistic.averageAccepts}</td>
+			<td style="color: green">{statistic.minimumAccepts}</td>
+			<td style="color: green">{statistic.maximumAccepts}</td>
+			<td style="color: red">{statistic.averageCancels}</td>
+			<td style="color: red">{statistic.minimumCancels}</td>
+			<td style="color: red">{statistic.maximumCancels}</td>
+			<td style="white-space: nowrap">
+				<f:for each="{statistic.tops}" as="top">
+					{top.participantName} ({top.eventsAccepted})<br>
+				</f:for>
+			</td>
+		</tr>
+	</f:for>
+</table>
+
+</f:then>
+<f:else>
+<f:translate key="eventStatistics.noAccess" />
+</f:else>
+</f:security.ifHasRole>
+</f:section>
