@@ -63,6 +63,9 @@
 			<trans-unit id="flexform.manageVacation">
 				<target>Ferien pflegen</target>
 			</trans-unit>
+			<trans-unit id="flexform.eventStatistics">
+				<target>Event Statistiken</target>
+			</trans-unit>
 			<trans-unit id="eventPlanner.lastEvent">
 				<target>Event zurück</target>
 			</trans-unit>
@@ -111,11 +114,17 @@
 			<trans-unit id="manageHolidays.noAccess">
 				<target>Sie haben keinen Zugriff auf die Ferienpflege.</target>
 			</trans-unit>
+			<trans-unit id="eventStatistics.noAccess">
+				<target>Sie haben keinen Zugriff auf die Event Statistiken.</target>
+			</trans-unit>
 			<trans-unit id="eventPlanner.title">
 				<target>Event Planer</target>
 			</trans-unit>
 			<trans-unit id="manageHolidays.title">
 				<target>Ferien pflegen</target>
+			</trans-unit>
+			<trans-unit id="eventStatistics.title">
+				<target>Event Statistiken</target>
 			</trans-unit>
 			<trans-unit id="edit">
 				<target>Bearbeiten</target>
@@ -174,8 +183,35 @@
 			<trans-unit id="inactiveReason.adminCanceled">
 				<target>Vom Administrator abgesagt</target>
 			</trans-unit>
-			<trans-unit id="or">
-				<target>oder</target>
+			<trans-unit id="eventStatistics.year">
+				<target>Jahr</target>
+			</trans-unit>
+			<trans-unit id="eventStatistics.activeEvents">
+				<target>Spieltage</target>
+			</trans-unit>
+			<trans-unit id="eventStatistics.inactiveEvents">
+				<target>Abgesagte Spieltage</target>
+			</trans-unit>
+			<trans-unit id="eventStatistics.averageAccepts">
+				<target>Zusagen durchschnittlich</target>
+			</trans-unit>
+			<trans-unit id="eventStatistics.minimumAccepts">
+				<target>Zusagen minimal</target>
+			</trans-unit>
+			<trans-unit id="eventStatistics.maximumAccepts">
+				<target>Zusagen maximal</target>
+			</trans-unit>
+			<trans-unit id="eventStatistics.averageCancels">
+				<target>Absagen durchschnittlich</target>
+			</trans-unit>
+			<trans-unit id="eventStatistics.minimumCancels">
+				<target>Absagen minimal</target>
+			</trans-unit>
+			<trans-unit id="eventStatistics.maximumCancels">
+				<target>Absagen maximal</target>
+			</trans-unit>
+			<trans-unit id="eventStatistics.topParticipants">
+				<target>Meiste Zusagen</target>
 			</trans-unit>
 		</body>
 	</file>

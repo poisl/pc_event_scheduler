@@ -82,8 +82,7 @@ class ParticipantRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
      * @param int $participantGroupId
      * @return \TYPO3\FLOW3\Persistence\QueryResultInterface
      */
-    public function findParticipantsUnknown($eventUid, $participantGroupId)
-    {
+    public function findParticipantsUnknown($eventUid, $participantGroupId){
     	$feUserRepository = $this->objectManager->get("TYPO3\CMS\Extbase\Domain\Repository\FrontendUserRepository");
     	$query = $feUserRepository->createQuery();
     	$query->statement("SELECT * FROM fe_users

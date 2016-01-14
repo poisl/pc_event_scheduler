@@ -19,6 +19,7 @@ Installation
 -  Create a folder to store the events, vacations and participants.
 -  Insert the plugin for the event planner on your desired page.
 -  Insert the plugin for holiday management on the desired page.
+-  Insert the plugin for event statistics on the desired page.
 -  Edit setup of the root template and change settings to your needs.
 
 Plugin TS setup in root template

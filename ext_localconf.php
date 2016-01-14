@@ -12,13 +12,13 @@ $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['extbase']['commandControllers'][] = \
 		'Event' => 'list, next, last, accept, cancel, activate, deactivate, location',
 		'Participant' => 'list, show, new, create, edit, update, delete',
 		'Holiday' => 'list, new, create, edit, update, delete',
-		
+		'Statistics' => 'list',		
 	),
 	// non-cacheable actions
 	array(
 		'Event' => 'list, next, last, accept, cancel, activate, deactivate, location',
 		'Participant' => 'list, show, new, create, edit, update, delete',
 		'Holiday' => 'list, new, create, edit, update, delete',
-		
+		'Statistics' => 'list',
 	)
 );

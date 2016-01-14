@@ -36,17 +36,34 @@ plugin.tx_pceventscheduler._CSS_DEFAULT_STYLE (
 		border: 1px #FF0000 solid;
 	}
 
-	.tx-pc-event-scheduler table {
+	.table1 {
 		border-collapse:separate;
 		border-spacing:10px;
 	}
 
-	.tx-pc-event-scheduler table th {
+	.table1 th {
 		font-weight:bold;
 	}
 
-	.tx-pc-event-scheduler table td {
+	.table1 td {
 		vertical-align:top;
+	}
+
+	.table2 {
+		border-collapse:collapse;
+		border-spacing:10px;
+	}
+
+	.table2 th {
+		font-weight:bold;
+		border: 1px solid black;
+		padding: 10px;
+	}
+
+	.table2 td {
+		vertical-align:top;
+		border: 1px solid black;
+		padding: 10px;
 	}
 
 	.typo3-messages .message-error {

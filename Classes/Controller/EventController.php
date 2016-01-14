@@ -1,8 +1,6 @@
 <?php
 namespace PoiCom\PcEventScheduler\Controller;
 
-use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
-
 /***************************************************************
  *
  *  Copyright notice
@@ -33,15 +31,6 @@ use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
  */
 class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
-
-	/**
-	 * localizationUtility
-	 *
-	 * @var TYPO3\CMS\Extbase\Utility\LocalizationUtility
-	 * @inject
-	 */
-	protected $localizationUtility;
-	
     /**
      * eventRepository
      *

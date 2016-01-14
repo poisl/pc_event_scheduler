@@ -29,6 +29,10 @@
 										<numIndex index="0">LLL:EXT:pc_event_scheduler/Resources/Private/Language/locallang.xlf:flexform.manageVacation</numIndex>
 										<numIndex index="1">Holiday->list;Holiday->new;Holiday->create;Holiday->edit;Holiday->update;Holiday->delete;</numIndex>
 									</numIndex>
+									<numIndex index="3" type="array">
+										<numIndex index="0">LLL:EXT:pc_event_scheduler/Resources/Private/Language/locallang.xlf:flexform.eventStatistics</numIndex>
+										<numIndex index="1">Statistics->list;</numIndex>
+									</numIndex>
 								</items>
 								<maxitems>1</maxitems>
 								<size>1</size>

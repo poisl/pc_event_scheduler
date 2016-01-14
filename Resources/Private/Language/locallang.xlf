@@ -63,6 +63,9 @@
 			<trans-unit id="flexform.manageVacation">
 				<source>Manage Holidays</source>
 			</trans-unit>
+			<trans-unit id="flexform.eventStatistics">
+				<source>Event Statistics</source>
+			</trans-unit>
 			<trans-unit id="eventPlanner.lastEvent">
 				<source>Last Event</source>
 			</trans-unit>
@@ -111,11 +114,17 @@
 			<trans-unit id="manageHolidays.noAccess">
 				<source>You have no access to manage holidays.</source>
 			</trans-unit>
+			<trans-unit id="eventStatistics.noAccess">
+				<source>You have no access to the event statistics.</source>
+			</trans-unit>
 			<trans-unit id="eventPlanner.title">
 				<source>Event Planner</source>
 			</trans-unit>
 			<trans-unit id="manageHolidays.title">
 				<source>Manage holidays</source>
+			</trans-unit>
+			<trans-unit id="eventStatistics.title">
+				<source>Event statistics</source>
 			</trans-unit>
 			<trans-unit id="edit">
 				<source>Edit</source>
@@ -174,8 +183,35 @@
 			<trans-unit id="inactiveReason.adminCanceled">
 				<source>admin canceled</source>
 			</trans-unit>			
-			<trans-unit id="or">
-				<source>or</source>
+			<trans-unit id="eventStatistics.year">
+				<source>Year</source>
+			</trans-unit>
+			<trans-unit id="eventStatistics.activeEvents">
+				<source>Events</source>
+			</trans-unit>
+			<trans-unit id="eventStatistics.inactiveEvents">
+				<source>Canceled events</source>
+			</trans-unit>
+			<trans-unit id="eventStatistics.averageAccepts">
+				<source>Average accepts</source>
+			</trans-unit>
+			<trans-unit id="eventStatistics.minimumAccepts">
+				<source>Minimal accepts</source>
+			</trans-unit>
+			<trans-unit id="eventStatistics.maximumAccepts">
+				<source>Maximal accepts</source>
+			</trans-unit>
+			<trans-unit id="eventStatistics.averageCancels">
+				<source>Average cancels</source>
+			</trans-unit>
+			<trans-unit id="eventStatistics.minimumCancels">
+				<source>Minimal cancels</source>
+			</trans-unit>
+			<trans-unit id="eventStatistics.maximumCancels">
+				<source>Maximal cancels</source>
+			</trans-unit>
+			<trans-unit id="eventStatistics.topParticipants">
+				<source>Top participants</source>
 			</trans-unit>
 		</body>
 	</file>
