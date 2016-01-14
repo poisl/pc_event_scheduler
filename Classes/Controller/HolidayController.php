@@ -82,10 +82,10 @@ class HolidayController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     public function createAction(\PoiCom\PcEventScheduler\Domain\Model\Holiday $holiday)
     {
 		if (!$this->div->isLoggedUserInGroup($this->settings['eventAdminGroupId'])) {
-			$this->addFlashMessage(LocalizationUtility::translate('message.noAdmin', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
+			$this->addFlashMessage($this->div->translate('message.noAdmin', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
 			$this->redirect('list');
 		}
-    	$this->addFlashMessage(LocalizationUtility::translate('message.holidayCreated', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::OK);
+    	$this->addFlashMessage($this->div->translate('message.holidayCreated', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::OK);
         $this->holidayRepository->add($holiday);
         $this->redirect('list');
     }
@@ -111,10 +111,10 @@ class HolidayController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     public function updateAction(\PoiCom\PcEventScheduler\Domain\Model\Holiday $holiday)
     {
     	if (!$this->div->isLoggedUserInGroup($this->settings['eventAdminGroupId'])) {
-    		$this->addFlashMessage(LocalizationUtility::translate('message.noAdmin', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
+    		$this->addFlashMessage($this->div->translate('message.noAdmin', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
     		$this->redirect('list');
     	}
-    	$this->addFlashMessage(LocalizationUtility::translate('message.holidayEdited', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::OK);
+    	$this->addFlashMessage($this->div->translate('message.holidayEdited', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::OK);
         $this->holidayRepository->update($holiday);
         $this->redirect('list');
     }
@@ -128,10 +128,10 @@ class HolidayController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     public function deleteAction(\PoiCom\PcEventScheduler\Domain\Model\Holiday $holiday)
     {
     	if (!$this->div->isLoggedUserInGroup($this->settings['eventAdminGroupId'])) {
-    		$this->addFlashMessage(LocalizationUtility::translate('message.noAdmin', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
+    		$this->addFlashMessage($this->div->translate('message.noAdmin', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
     		$this->redirect('list');
     	}
-    	$this->addFlashMessage(LocalizationUtility::translate('message.holidayDeleted', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::OK);
+    	$this->addFlashMessage($this->div->translate('message.holidayDeleted', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::OK);
         $this->holidayRepository->remove($holiday);
         $this->redirect('list');
     }

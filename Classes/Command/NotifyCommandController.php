@@ -2,7 +2,6 @@
 namespace PoiCom\PcEventScheduler\Command;
 
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManager;
-use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
 /***************************************************************
  *
