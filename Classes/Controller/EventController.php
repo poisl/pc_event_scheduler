@@ -117,13 +117,13 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     public function acceptAction()
     {
     	if (!$this->div->isLoggedUserInGroup($this->settings['participantGroupId'])) {
-    		$this->addFlashMessage(LocalizationUtility::translate('message.noParticipant', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
+    		$this->addFlashMessage($this->div->translate('message.noParticipant', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
     		$this->redirect('list');
     	}
     	if ($this->request->hasArgument('offset')) {
     		$offset = $this->request->getArgument('offset');
     		if ($offset < 0) {
-    			$this->addFlashMessage(LocalizationUtility::translate('message.pastEventError', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
+    			$this->addFlashMessage($this->div->translate('message.pastEventError', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
     			$this->redirect('list', Null, Null, array('offset'=>$offset));
     		}    		
     	}
@@ -158,7 +158,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     			$this->eventRepository->update($events->getFirst());
     		}
     	}
-    	$this->addFlashMessage(LocalizationUtility::translate('message.acceptedEvent', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::OK);
+    	$this->addFlashMessage($this->div->translate('message.acceptedEvent', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::OK);
     	$this->redirect('list', Null, Null, array('offset'=>$offset));
     }
 
@@ -170,13 +170,13 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     public function cancelAction()
     {
     	if (!$this->div->isLoggedUserInGroup($this->settings['participantGroupId'])) {
-    		$this->addFlashMessage(LocalizationUtility::translate('message.noParticipant', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
+    		$this->addFlashMessage($this->div->translate('message.noParticipant', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
     		$this->redirect('list');
     	}
     	if ($this->request->hasArgument('offset')) {
     		$offset = $this->request->getArgument('offset');
     		if ($offset < 0) {
-    			$this->addFlashMessage(LocalizationUtility::translate('message.pastEventError', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
+    			$this->addFlashMessage($this->div->translate('message.pastEventError', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
     			$this->redirect('list', Null, Null, array('offset'=>$offset));
     		}
     	}
@@ -256,13 +256,13 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     public function activateAction()
     {
     	if (!$this->div->isLoggedUserInGroup($this->settings['eventAdminGroupId'])) {
-    		$this->addFlashMessage(LocalizationUtility::translate('message.noAdmin', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
+    		$this->addFlashMessage($this->div->translate('message.noAdmin', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
     		$this->redirect('list');
     	}
     	if ($this->request->hasArgument('offset')) {
     		$offset = $this->request->getArgument('offset');
     		if ($offset < 0) {
-    			$this->addFlashMessage(LocalizationUtility::translate('message.pastEventError', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
+    			$this->addFlashMessage($this->div->translate('message.pastEventError', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
     			$this->redirect('list', Null, Null, array('offset'=>$offset));
     		}    		
     	}
@@ -276,7 +276,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     	$events->getFirst()->setInactiveReason('');
     	$this->eventRepository->update($events->getFirst());
     	
-    	$this->addFlashMessage(LocalizationUtility::translate('message.activateEvent', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::OK);
+    	$this->addFlashMessage($this->div->translate('message.activateEvent', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::OK);
      	$this->redirect('list', Null, Null, array('offset'=>$offset));
     }
     
@@ -288,13 +288,13 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     public function deactivateAction()
     {
     	if (!$this->div->isLoggedUserInGroup($this->settings['eventAdminGroupId'])) {
-    		$this->addFlashMessage(LocalizationUtility::translate('message.noAdmin', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
+    		$this->addFlashMessage($this->div->translate('message.noAdmin', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
     		$this->redirect('list');
     	}
     	if ($this->request->hasArgument('offset')) {
     		$offset = $this->request->getArgument('offset');
     		if ($offset < 0) {
-    			$this->addFlashMessage(LocalizationUtility::translate('message.pastEventError', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
+    			$this->addFlashMessage($this->div->translate('message.pastEventError', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
     			$this->redirect('list', Null, Null, array('offset'=>$offset));
     		}    		
     	}
@@ -305,10 +305,10 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     	$eventStartDate = $this->div->nextEventDate($offset);
     	$events = $this->eventRepository->findByStart($eventStartDate->format("Y-m-d H:i:s"));
     	$events->getFirst()->setActive(FALSE);
-    	$events->getFirst()->setInactiveReason(LocalizationUtility::translate('inactiveReason.adminCanceled', $this->extensionName));
+    	$events->getFirst()->setInactiveReason($this->div->translate('inactiveReason.adminCanceled', $this->extensionName));
     	$this->eventRepository->update($events->getFirst());
     	 
-    	$this->addFlashMessage(LocalizationUtility::translate('message.deactivateEvent', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::OK);
+    	$this->addFlashMessage($this->div->translate('message.deactivateEvent', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::OK);
     	$this->redirect('list', Null, Null, array('offset'=>$offset));
     }
     
@@ -320,14 +320,14 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     public function locationAction()
     {
     	if (!$this->div->isLoggedUserInGroup($this->settings['eventAdminGroupId'])) {
-    		$this->addFlashMessage(LocalizationUtility::translate('message.noAdmin', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
+    		$this->addFlashMessage($this->div->translate('message.noAdmin', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
     		$this->redirect('list');
     	}
     	$location = $this->request->getArgument('location');
     	if ($this->request->hasArgument('offset')) {
     		$offset = $this->request->getArgument('offset');
     		if ($offset < 0) {
-    			$this->addFlashMessage(LocalizationUtility::translate('message.pastEventError', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
+    			$this->addFlashMessage($this->div->translate('message.pastEventError', $this->extensionName), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
     			$this->redirect('list', Null, Null, array('offset'=>$offset));
     		}    		
     	}
@@ -340,7 +340,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     	$events->getFirst()->setLocation($location);
     	$this->eventRepository->update($events->getFirst());
     
-    	$this->addFlashMessage(LocalizationUtility::translate('message.setLocation', $this->extensionName).": $location", '', \TYPO3\CMS\Core\Messaging\AbstractMessage::OK);
+    	$this->addFlashMessage($this->div->translate('message.setLocation', $this->extensionName).": $location", '', \TYPO3\CMS\Core\Messaging\AbstractMessage::OK);
     	$this->redirect('list', Null, Null, array('offset'=>$offset));
     }
 }
