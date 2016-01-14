@@ -133,17 +133,19 @@ class NotifyCommandController extends \TYPO3\CMS\Extbase\Mvc\Controller\CommandC
 		return true;
 	}
 	
-	/*
+	/**
 	 * init frontend to render frontend links in task
+	 * 
+	 * @param int $rootId
+	 * @param int $typeNum
+	 * @return void
 	 */
-	protected function initFrontend() {
-		$id = 1;
-		$type = 0;
+	protected function initFrontend($rootId = 1, $typeNum = 0) {
 		if (!is_object($GLOBALS['TT'])) {
 			$GLOBALS['TT'] = new \TYPO3\CMS\Core\TimeTracker\TimeTracker;
 			$GLOBALS['TT']->start();
 		}
-		$GLOBALS['TSFE'] = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Frontend\\Controller\\TypoScriptFrontendController',  $GLOBALS['TYPO3_CONF_VARS'], $id, $typeNum);
+		$GLOBALS['TSFE'] = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Frontend\\Controller\\TypoScriptFrontendController',  $GLOBALS['TYPO3_CONF_VARS'], $rootId, $typeNum);
 		$GLOBALS['TSFE']->connectToDB();
 		$GLOBALS['TSFE']->initFEuser();
 		$GLOBALS['TSFE']->determineId();
@@ -151,7 +153,7 @@ class NotifyCommandController extends \TYPO3\CMS\Extbase\Mvc\Controller\CommandC
 		$GLOBALS['TSFE']->getConfigArray();
 	
 		if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('realurl')) {
-			$rootline = \TYPO3\CMS\Backend\Utility\BackendUtility::BEgetRootLine($id);
+			$rootline = \TYPO3\CMS\Backend\Utility\BackendUtility::BEgetRootLine($rootId);
 			$host = \TYPO3\CMS\Backend\Utility\BackendUtility::firstDomainRecord($rootline);
 			$_SERVER['HTTP_HOST'] = $host;
 		}
