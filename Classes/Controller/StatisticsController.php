@@ -73,7 +73,7 @@ class StatisticsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContr
     	$index = 0;
     	$statistics = array();
     	
-    	for($i=$oldestEventYear;$i<=$currentYear;$i++)
+    	for($i=$currentYear;$i>=$oldestEventYear;$i--)
     	{
     		$year = $i;
 
