@@ -144,11 +144,14 @@ class Div extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 	 * @return int $daysUntilNextEvent
 	 */
 	public function daysUntilNextEvent() {
-		$eventWeekday = $this->settings['eventWeekday'];
+		$eventStartDate = new \DateTime(date ('Y-m-d', strtotime($this->settings['eventStartDate'])));
 		$today= new \DateTime(date ('Y-m-d'));
-		$nextEventDate = new \DateTime(date ('Y-m-d', strtotime("this ".$eventWeekday)));
-	 	
-		$diff = $today->diff($nextEventDate);
+		$repeatEventInterval = $this->settings['repeatEventInterval'];
+		
+		for($nextDate=$eventStartDate;$nextDate<$today;$nextDate->modify("+".$repeatEventInterval." week")) {
+		}
+
+		$diff = $today->diff($nextDate);
 	 
 		return $diff->days;
 	}

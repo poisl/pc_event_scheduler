@@ -32,18 +32,18 @@ Plugin TS setup in root template
             # Id of the folder where all events, vacations and participants are stored
             persistence.storagePid = 123
             settings {
+              # Event start date (Y-m-d), e.g. 2016-01-15
+              eventStartDate = 2016-01-15
               # Event start time (H:M); Default value, if not set is "20:00"
               eventStartTime = 20:00
               # Event end time (H:M); Default value, if not set is "22:00"
               eventEndTime = 22:00
+              # Event is repeated after amount of weeks specified here; Default value, if not set is "1"
+              repeatEventInterval = 1
               # Name of the event default location; Default value, if not set is "Default location"
               defaultLocation = Default event location
               # Name of the alternate event default location, that can be used by eventAdmins to set the event location
               alternateLocation = Alternate event location
-              # Weekday of the event is (Monday to Sunday); Default value, if not set is "Friday"
-              eventWeekday = Friday
-              # Event is repeated after amount of weeks specified here; Default value, if not set is "1"
-              repeatEventInterval = 1
               # Id of the frontend user group that contains all frontend users that should be able to participate
               participantGroupId = 123              
               # Id of the frontend user group that will be able to manage holidays, activate/deactivate events and set event location

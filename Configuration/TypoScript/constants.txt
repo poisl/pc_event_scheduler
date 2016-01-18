@@ -13,18 +13,18 @@ plugin.tx_pceventscheduler {
 		storagePid =
 	}
 	settings {
+		# cat=plugin.tx_pceventscheduler//a; type=string; label=Default event start date (Y-m-d), e.g. 2016-01-15
+		eventStartDate = 
 		# cat=plugin.tx_pceventscheduler//a; type=string; label=Default event start time (H:M), Default: 20:00
 		eventStartTime = 20:00
 		# cat=plugin.tx_pceventscheduler//a; type=string; label=Default event end time (H:M), Default: 22:00
 		eventEndTime = 22:00
+		# cat=plugin.tx_pceventscheduler//a; type=string; label=Event is repeated after amount of weeks specified here, Default: 1 week 
+		repeatEventInterval = 1
 		# cat=plugin.tx_pceventscheduler//a; type=string; label=Default event location
 		defaultLocation = Default location
 		# cat=plugin.tx_pceventscheduler//a; type=string; label=Alternative event location
 		alternateLocation =
-		# cat=plugin.tx_pceventscheduler//a; type=string; label=Weekday of the event is (Monday to Sunday), Default: Friday
-		eventWeekday = Friday
-		# cat=plugin.tx_pceventscheduler//a; type=string; label=Event is repeated after amount of weeks specified here, Default: 1 week 
-		repeatEventInterval = 1
 		# cat=plugin.tx_pceventscheduler//a; type=string; label=Group ID for the participants 
 		participantGroupId =
 		# cat=plugin.tx_pceventscheduler//a; type=string; label=Group ID for the event administration 

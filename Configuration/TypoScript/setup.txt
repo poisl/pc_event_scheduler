@@ -9,12 +9,12 @@ plugin.tx_pceventscheduler {
 		storagePid = {$plugin.tx_pceventscheduler.persistence.storagePid}
 	}
 	settings {
+		eventStartDate = {$plugin.tx_pceventscheduler.settings.eventStartTime}
 		eventStartTime = {$plugin.tx_pceventscheduler.settings.eventStartTime}
 		eventEndTime = {$plugin.tx_pceventscheduler.settings.eventEndTime}
+		repeatEventInterval = {$plugin.tx_pceventscheduler.settings.repeatEventInterval}		
 		defaultLocation = {$plugin.tx_pceventscheduler.settings.defaultLocation}
-		alternateLocation = {$plugin.tx_pceventscheduler.settings.alternateLocation}
-		eventWeekday = {$plugin.tx_pceventscheduler.settings.eventWeekday}
-		repeatEventInterval = {$plugin.tx_pceventscheduler.settings.repeatEventInterval} 
+		alternateLocation = {$plugin.tx_pceventscheduler.settings.alternateLocation} 
 		participantGroupId = {$plugin.tx_pceventscheduler.settings.participantGroupId}
 		eventAdminGroupId = {$plugin.tx_pceventscheduler.settings.eventAdminGroupId}
 		eventPageUid = {$plugin.tx_pceventscheduler.settings.eventPageUid}
