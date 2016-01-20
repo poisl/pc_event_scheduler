@@ -29,7 +29,7 @@ plugin.tx_pceventscheduler {
 		participantGroupId =
 		# cat=plugin.tx_pceventscheduler//a; type=string; label=Group ID for the event administration 
 		eventAdminGroupId =
-		# cat=plugin.tx_pceventscheduler//a; type=string; label=Page UID of the event planner (for the link generation in the notification scheduler task) 
+		# cat=plugin.tx_pceventscheduler//a; type=string; label=Page UID of the event planner (for the link generation in the notification scheduler task, make sure the page itself has no access restriction) 
 		eventPageUid = 
 		# cat=plugin.tx_pceventscheduler//a; type=string; label=Email subject for the email notification, Default: Event notification
 		notifyMailSubject = Event notification

@@ -48,7 +48,7 @@ Plugin TS setup in root template
               participantGroupId = 123              
               # Id of the frontend user group that will be able to manage holidays, activate/deactivate events and set event location
               eventAdminGroupId = 123
-              # Id of the page where the event planner is included
+              # Id of the page where the event planner is included, make sure the page itself has no access restriction
               eventPageUid = 123
               # Email subject for the email notification; Default value, if not set "Event notification"
               notifyMailSubject = Event notification
