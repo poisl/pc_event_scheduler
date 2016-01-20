@@ -63,6 +63,7 @@ Notify Participants by mail
 
 -  If you'd like to notify the participants that did not accept or cancel the next event by email, you can setup a scheduler task.
 -  Make sure you have setup the scheduler extension properly.
+-  Make sure the eventPageUid has no access restriction.
 -  Add a new "Extbase-CommandController-Task" and select CommandController Command "PcEventScheduler Notify: notify".
 -  Setup the start and repeat time as you wish, everytime this task runs it will notify all participants about the next event, that did not yet accept or cancel it.
 -  The email will not only contain details about the next event but also links to accept or cancel the participation.
