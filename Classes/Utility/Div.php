@@ -179,9 +179,15 @@ class Div extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 	  * @return void
 	  */
 	 public function createEvent($eventStartDate) {
-	 	$eventEndTime = $this->settings['eventEndTime'];
+		$utcTimeZone = new \DateTimeZone('UTC');
+		$eventStartDate->setTimezone($utcTimeZone);
+
+	 	$eventStartTime = $this->settings['eventStartTime'];
+		$eventEndTime = $this->settings['eventEndTime'];
 	 	$eventLocation = $this->settings['defaultLocation'];
 	 	$eventEndDate = clone $eventStartDate;
+		$eventEndDate->setTimezone($utcTimeZone);
+		$eventStartDate->setTime(substr($eventStartTime,0,2), substr($eventStartTime,3,2), '00');
 	 	$eventEndDate->setTime(substr($eventEndTime,0,2), substr($eventEndTime,3,2), '00');
 
 	 	$event = New \PoiCom\PcEventScheduler\Domain\Model\Event;
